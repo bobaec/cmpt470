@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/layout.css">
+		<script src="functions.js"></script>
+		<title>A3/4</title>
+	</head>
+	<body>
+	<div class = "outermost">
+        <h1 style = "text-align:center;color:white">A3/4</h1>
+        <div class = "formbox">
+		    <form action="./addUser" method="POST">
+				<label for="name">Name:</label><br>
+				<input type="text" id="name" name="name" placeholder="John" required>
+				<br>
+				<label for="email">Email:</label><br>
+				<input type="text" id="email" name="email" placeholder="lol@sfu.ca" required>
+				<br>
+				<label for="age">Age:</label><br>
+				<input type="text" id="age" name="age" placeholder="25" required>
+				<br>
+				<br>
+				<input type="submit" value="Submit" style = "font-weight:bold">
+			</form>
+		</div>
+	</div>
+	<div>
+		<br>
+		<h1 style="text-align:center;color:white">All Current Users</h1>
+		<table id = "table">
+			<thead>
+				<tr>
+					<th>Key <button class="btn" onclick = "sortKey()"><i class="fa fa-arrow-up" ></i></button>
+					<button class="btn" onclick = "sortKeyDesc()"><i class="fa fa-arrow-down"></i></button></th>
+					<th>Name <button class="btn" onclick = "sortName()"><i class="fa fa-arrow-up" ></i></button>
+					<button class="btn" onclick = "sortNameDesc()"><i class="fa fa-arrow-down"></i></button></th>
+					<th>Email <button class="btn" onclick = "sortEmail()"><i class="fa fa-arrow-up" ></i></button>
+					<button class="btn" onclick = "sortEmailDesc()"><i class="fa fa-arrow-down"></i></button></th>
+					<th>Age <button class="btn" onclick = "sortAge()"><i class="fa fa-arrow-up" ></i></button>
+					<button class="btn" onclick = "sortAgeDesc()"><i class="fa fa-arrow-down"></i></button></th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% Users.forEach(function(Users){ %>
+					<tr>
+						<td><%= Users.Key%></td>
+						<td><%= Users.Name %></td>
+						<td><%= Users.Email %></td>
+						<td><%= Users.Age %></td>
+						<td><a href="/edit/<%= Users.Key%>" style="text-align:center"><i class="fa fa-edit"></i></td>
+						<td><a href="/delete/<%= Users.Key%>"><i class="fa fa-trash" aria-hidden="true"></i></td>
+					</tr>
+			<% }); %>
+		</tbody>
+		</table>
+	</div>
+</body>
+</html>

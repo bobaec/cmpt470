@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+	<body class="container">
+	<div>
+		<br>
+		All Current Users
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Age</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% Users.forEach(function(Users){ %>
+				<tr>
+					<td><%= Users.Name %></td>
+					<td><%= Users.Email %></td>
+					<td><%= Users.Age %></td>
+				</tr>
+		<% }); %>
+	</tbody>
+	</table>
+</div>
+</body>
+</html>
